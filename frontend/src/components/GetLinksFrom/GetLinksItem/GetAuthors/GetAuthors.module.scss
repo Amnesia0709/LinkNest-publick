@@ -1,0 +1,19 @@
+.authorsList {
+    display: flex;
+    flex-wrap: wrap;
+    .authorItem {
+        padding: 8px 31px;
+        border: 1px solid #888888;
+        border-radius: 40px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: #999999;
+        user-select: none;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            color: #529EE5;
+            border: 1px solid #529EE5;
+        }
+    }
+}

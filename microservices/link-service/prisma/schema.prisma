@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id              Int               @id @default(autoincrement())
+  name            String            @unique(map: "name") @db.VarChar(255)
+  linkscategories linkscategories[]
+}
+
+model links {
+  id                Int               @id @default(autoincrement())
+  url               String            @unique(map: "url") @db.VarChar(255)
+  title             String            @db.VarChar(255)
+  interest_level_id Int
+  date_added        DateTime?         @default(now()) @db.Timestamp(0)
+  comments          comments[]
+  interestlevels    interestlevels    @relation(fields: [interest_level_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "links_ibfk_1")
+  linksauthors      linksauthors[]
+  linkscategories   linkscategories[]
+
+  @@index([interest_level_id], map: "interest_level_id")
+}
+
+model linkscategories {
+  id          Int         @id @default(autoincrement())
+  link_id     Int?
+  category_id Int?
+  links       links?      @relation(fields: [link_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "linkscategories_ibfk_1")
+  categories  categories? @relation(fields: [category_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "linkscategories_ibfk_2")
+
+  @@index([category_id], map: "category_id")
+  @@index([link_id], map: "link_id")
+}
+
+model authors {
+  id           Int            @id @default(autoincrement())
+  author       String         @unique(map: "author") @db.VarChar(255)
+  linksauthors linksauthors[]
+}
+
+model linksauthors {
+  id        Int     @id @default(autoincrement())
+  link_id   Int
+  author_id Int
+  links     links   @relation(fields: [link_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "linksauthors_ibfk_1")
+  authors   authors @relation(fields: [author_id], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "linksauthors_ibfk_2")
+
+  @@index([author_id], map: "author_id")
+  @@index([link_id], map: "link_id")
+}
+
+model interestlevels {
+  id             Int     @id @default(autoincrement())
+  interest_level Int     @unique(map: "interest_level")
+  links          links[]
+}
+
+model comments {
+  id      Int    @id @default(autoincrement())
+  comment String @db.VarChar(255)
+  link_id Int
+  links   links  @relation(fields: [link_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "comments_ibfk_1")
+
+  @@index([link_id], map: "link_id")
+}

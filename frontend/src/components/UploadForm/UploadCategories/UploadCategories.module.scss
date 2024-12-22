@@ -1,0 +1,37 @@
+.uploadCategories {
+    margin-top: 35px;
+    &__label {
+        font-weight: 500;
+        font-size: 24px;
+    }
+    &__adder {
+        &__fieldInput {
+            margin-top: 20px;
+            width: 100%;
+            padding: 13px 20px;
+        }
+        &__btn {
+            margin-top: 20px;
+        }
+    }
+    &__list {
+        .categoriesList {
+            margin-top: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            &__items {
+                border: 1px solid #888888;
+                border-radius: 40px;
+                color: #999999;
+                padding: 8px 31px;
+                transition: all 0.2s ease-in-out;
+                margin-right: 20px;
+                margin-top: 20px;
+                &:hover {
+                    border: 1px solid #529EE5;
+                    color: #529EE5;
+                }
+            }
+        }
+    }
+}

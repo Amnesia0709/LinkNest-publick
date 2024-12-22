@@ -1,0 +1,16 @@
+.uploadLinkSection {
+    margin-top: 115px;
+    &__title {
+        font-weight: 700;
+        font-size: 36px;
+        text-transform: uppercase;
+    }
+    &__description {
+        color: #999999;
+    }
+    &__fieldInput {
+        margin-top: 55px;
+        padding: 20px;
+        width: 100%;
+    }
+}

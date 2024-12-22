@@ -1,0 +1,21 @@
+.metadataSection {
+    margin-top: 44px;
+    &__title {
+        &__filedInput {
+            margin-top: 25px;
+            width: 100%;
+            padding: 13px 20px;
+        }
+    }
+    &__comment {
+        &__filedInput {
+            margin-top: 25px;
+            width: 100%;
+            padding: 13px 20px;
+        }
+    }
+    &__label {
+        font-weight: 500;
+        font-size: 24px;
+    }
+}

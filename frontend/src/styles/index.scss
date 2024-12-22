@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html {
+    font-size: 10px;
+    color: #FFFFFF;
+}
+
+body {
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.6rem;
+    background-color: #23282E;
+}
+
+input {
+    border-radius: 10px;
+    border: 1px solid #888888;
+    background-color: transparent;
+    color: #FFFFFF;
+    outline: none;
+    transition: all 0.2s linear;
+    &:focus {
+        border: 1px solid rgba(82, 158, 229, 0.25);
+        outline: none;
+    }
+}
+
+textarea {
+    border-radius: 10px;
+    border: 1px solid #888888;
+    background-color: transparent;
+    color: #FFFFFF;
+    outline: none;
+    transition: all 0.01s linear;
+    resize: both;
+    &:focus {
+        border: 1px solid rgba(82, 158, 229, 0.25);
+        outline: none;
+    }
+}

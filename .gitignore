@@ -1,0 +1,12 @@
+/microservices/link-service/node_modules/
+/microservices/link-service/package-lock.json
+
+/frontend/.idea
+/frontend/node_modules/
+/frontend/eslint.config.js/
+
+/backend/node_modules/
+/backend/package-lock.json
+/backend/.idea
+
+.idea

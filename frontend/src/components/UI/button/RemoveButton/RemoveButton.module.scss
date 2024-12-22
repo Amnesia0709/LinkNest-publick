@@ -1,0 +1,13 @@
+.removeButton {
+    padding: 11px 47px;
+    border: 1px solid #FF5F5F;
+    color: #FF5F5F;
+    border-radius: 40px;
+    transition: all 0.2s ease-in-out;
+    margin-left: 15px;
+    &:hover {
+        border: 1px solid transparent;
+        background-color: #FF5F5F;
+        color: #FFFFFF;
+    }
+}

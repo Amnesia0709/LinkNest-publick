@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap');
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 120px;
+    border: 1px solid #333333;
+    .logo {
+        display: flex;
+        align-items: center;
+        .brandName {
+            font-family: "Source Code Pro", monospace;
+            font-optical-sizing: auto;
+            font-weight: 700;
+            font-style: normal;
+            font-size: 24px;
+        }
+    }
+    .navbar {
+        display: flex;
+        align-items: center;
+        &__items {
+            margin-left: 40px;
+            color: #888888;
+            transition: all 0.2s ease-in-out;
+            &:hover {
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+.glowingEllipse {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: transparent;
+    width: 855px;
+    height: 600px;
+    border-radius: 100%;
+    background-color: #2e404f;
+    filter: blur(768px);
+    transform: translateX(-60%) translateY(-40%);
+}

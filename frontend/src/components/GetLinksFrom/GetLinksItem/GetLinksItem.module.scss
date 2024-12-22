@@ -1,0 +1,73 @@
+.link {
+    padding: 25px 25px 60px 30px;
+    width: 100%;
+    border: 1px solid #888888;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    &Header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &Section {
+        display: flex;
+        margin-top: 40px;
+        &Title {
+            min-width: 170px;
+            font-weight: 500;
+        }
+        &Url {
+            color: #999999;
+            font-weight: 400;
+            text-decoration-line: underline
+        }
+    }
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.interestLevel {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+    user-select: none;
+    justify-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.interestBad {
+    color: #FF5F5F;
+    border: 1px solid #FF5F5F;
+    &:hover {
+        background-color: #FF5F5F;
+        color: #fff;
+    }
+}
+.interestMedium {
+    color: #F3DD37;
+    border: 1px solid #F3DD37;
+    &:hover {
+        background-color: #C2B33E;
+        color: #fff;
+    }
+}
+.interestGood {
+    color: #529EE5;
+    border: 1px solid #529EE5;
+    &:hover {
+        background-color: #529EE5;
+        color: #fff;
+    }
+}
+
+.isNone {
+    color: #999999;
+    font-weight: 400;
+}

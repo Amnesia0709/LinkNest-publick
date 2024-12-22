@@ -1,0 +1,60 @@
+services:
+  database:
+    image: mysql:8.0
+    container_name: mysqlContainer
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: database_name
+      MYSQL_USER: user_name
+      MYSQL_PASSWORD: user_password
+    volumes:
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "3307:3306"
+    networks:
+      - linknest-network
+  
+  link-service:
+    build:
+      context: ./microservices/link-service/
+      args:
+        - DATABASE_URL="mysql://user_name:user_password@mysqlContainer:3306/database_name"
+    image: link-service:1.0
+    container_name: linkServiceContainer
+    depends_on:
+      - database
+    ports:
+      - "50051:50051"
+    networks:
+      - linknest-network
+
+  backend:
+    build:
+      context: ./backend/
+      args:
+        - PORT=8080
+        - GRPC_PORT=50051
+        - GRPC_DOMAIN=linkServiceContainer
+    image: backend:1.0
+    container_name: backendContainer
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    networks:
+      - linknest-network
+
+  frontend:
+    build:
+      context: ./frontend/
+    image: frontend:1.0
+    container_name: frontendContainer
+    ports:
+      - "8000:5173"
+    depends_on:
+      - backend
+    networks:
+      - linknest-network
+  
+networks:
+  linknest-network:
+    driver: bridge

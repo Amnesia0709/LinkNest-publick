@@ -1,0 +1,15 @@
+.hero {
+    margin-top: 115px;
+    &__title {
+        font-size: 36px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    &__numberOfLinks {
+        font-weight: lighter;
+    }
+    &__description {
+        font-weight: 400;
+        color: #999999;
+    }
+}

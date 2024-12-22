@@ -1,0 +1,19 @@
+.categoryList {
+    display: flex;
+    flex-wrap: wrap;
+    .categoryItems {
+        padding: 8px 31px;
+        border: 1px solid #888888;
+        border-radius: 40px;
+        transition: all 0.2s ease-in-out;
+        margin-right: 20px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        color: #999999;
+        user-select: none;
+        &:hover {
+            color: #529EE5;
+            border: 1px solid #529EE5;
+        }
+    }
+}
